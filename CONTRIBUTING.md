@@ -1,4 +1,4 @@
-# Contributing to Search Console MCP
+# Contributing to Google SEO MCP
 
 Thanks for your interest in contributing.
 
@@ -78,7 +78,7 @@ We take security seriously, especially regarding OAuth and token storage.
 
 ## Philosophy
 
-Search Console MCP is designed to:
+Google SEO MCP is designed to:
 
 - Be local-first
 - Be secure by default

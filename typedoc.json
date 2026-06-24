@@ -9,7 +9,7 @@
         "src/common/tools/*.ts"
     ],
     "out": "docs-site",
-    "name": "Search Console MCP Server API",
+    "name": "Google SEO MCP Server API",
     "includeVersion": true,
     "plugin": [],
     "exclude": [

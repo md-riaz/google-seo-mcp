@@ -1,9 +1,9 @@
 ---
 title: "Overview"
-description: "What is search-console-mcp?"
+description: "What is google-seo-mcp?"
 ---
 
-**search-console-mcp** is an open-source implementation of the [Model Context Protocol](https://modelcontextprotocol.io) that gives AI agents direct, structured access to **Google Search Console (GSC)**, **Bing Webmaster Tools**, and **Google Analytics 4 (GA4)**.
+**google-seo-mcp** is an open-source implementation of the [Model Context Protocol](https://modelcontextprotocol.io) that gives AI agents direct, structured access to **Google Search Console (GSC)**, **Bing Webmaster Tools**, and **Google Analytics 4 (GA4)**.
 
 Unlike simple API wrappers, this project focuses on providing **SEO Intelligence Tools**. Instead of just asking an agent to "look at my data," you can give it tools to "find quick wins," "detect traffic anomalies," or "submit URLs instantly."
 

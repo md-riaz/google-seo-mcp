@@ -1,6 +1,6 @@
 # CLAUDE.md
 
-Guidelines and commands for developing, building, and running the Search Console MCP server.
+Guidelines and commands for developing, building, and running the Google SEO MCP server.
 
 For comprehensive architectural patterns and guidelines on co-hosting multiple MCP servers on a single VPS, see [@AGENTS.md](AGENTS.md).
 

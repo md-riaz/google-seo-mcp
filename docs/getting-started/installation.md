@@ -3,7 +3,7 @@ title: "Installation"
 description: "Get up and running with Google and Bing in less than 2 minutes."
 ---
 
-We designed `search-console-mcp` to work instantly with your favorite AI editor. No complex configuration required.
+We designed `google-seo-mcp` to work instantly with your favorite AI editor. No complex configuration required.
 
 ## Prerequisites
 
@@ -15,7 +15,7 @@ We designed `search-console-mcp` to work instantly with your favorite AI editor.
 Run this command in your terminal. The wizard will walk you through connecting your Google and/or Bing accounts.
 
 ```bash
-npx search-console-mcp setup
+npx google-seo-mcp setup
 ```
 
 The tool will open your browser for secure authentication and then display the exact code snippet to copy-paste into your config.
@@ -37,7 +37,7 @@ Add this to your `claude_desktop_config.json`:
   "mcpServers": {
     "search-console": {
       "command": "npx",
-      "args": ["-y", "search-console-mcp"],
+      "args": ["-y", "google-seo-mcp"],
       "env": {
         "BING_API_KEY": "your-api-key-here",
         "GOOGLE_APPLICATION_CREDENTIALS": "/path/to/your/service-account.json"
@@ -57,7 +57,7 @@ Add this to your `claude_desktop_config.json`:
 4.  Enter the following:
     *   **Name:** `Search Console`
     *   **Type:** `command`
-    *   **Command:** `npx -y search-console-mcp`
+    *   **Command:** `npx -y google-seo-mcp`
 5.  **Environment Variables (Optional):** Click **Edit** on your new server to add variables if needed:
     *   `BING_API_KEY`: For Bing integration.
     *   `GOOGLE_APPLICATION_CREDENTIALS`: For Google Service Account auth.
@@ -80,7 +80,7 @@ You can configure the server specifically for your workspace using the standard 
                 "command": "npx",
                 "args": [
                     "-y",
-                    "search-console-mcp"
+                    "google-seo-mcp"
                 ],
                 "env": {
                     "BING_API_KEY": "your-api-key-here",
@@ -94,7 +94,7 @@ You can configure the server specifically for your workspace using the standard 
 2.  **Option B: Command Palette**
     *   Open the Command Palette (`Cmd+Shift+P` / `Ctrl+Shift+P`).
     *   Search for **"MCP: Add Server"**.
-    *   Enter the command: `npx -y search-console-mcp`.
+    *   Enter the command: `npx -y google-seo-mcp`.
 
 ---
 
@@ -103,7 +103,7 @@ You can configure the server specifically for your workspace using the standard 
 After installation, confirm your accounts are connected:
 
 ```bash
-npx search-console-mcp accounts list
+npx google-seo-mcp accounts list
 ```
 
 This will show all connected Google and Bing accounts and which sites they can access.

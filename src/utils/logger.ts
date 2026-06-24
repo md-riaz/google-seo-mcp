@@ -1,5 +1,5 @@
 /**
- * Logging utility for Search Console MCP.
+ * Logging utility for Google SEO MCP.
  * Since this is a stdio-based MCP server, we must log to stderr
  * to avoid interfering with the MCP protocol on stdout.
  */

@@ -1,4 +1,4 @@
-# Google Search Console MCP Server - Roadmap
+# Google Google SEO MCP Server - Roadmap
 
 This document outlines the planned features and improvements for this project.
 
@@ -113,7 +113,7 @@ This document outlines the planned features and improvements for this project.
 
 - **Multi-Account Architecture**: Manage multiple Google and Bing accounts seamlessly
   - Dynamic account resolution based on `siteUrl` (exact match → domain match → global fallback)
-  - Encrypted unified config (`~/.search-console-mcp-config.enc`) with per-machine encryption
+  - Encrypted unified config (`~/.google-seo-mcp-config.enc`) with per-machine encryption
   - Secure token storage in OS keychain via `@napi-rs/keyring`
 - **CLI Accounts Management** (`accounts` subcommand):
   - `accounts list` - Display all connected accounts, sites, and engines (JSON output)
@@ -122,8 +122,8 @@ This document outlines the planned features and improvements for this project.
   - `accounts add-site --account=<alias> --site=<url>` - Add a site boundary to an account
   - Supports both positional args (human) and flags (agent)
 - **Legacy Account Detection**: Automatic discovery of all legacy auth methods
-  - Encrypted legacy tokens (`~/.search-console-mcp-tokens.enc`)
-  - Unencrypted legacy OAuth tokens (`~/.search-console-mcp-tokens.json`)
+  - Encrypted legacy tokens (`~/.google-seo-mcp-tokens.enc`)
+  - Unencrypted legacy OAuth tokens (`~/.google-seo-mcp-tokens.json`)
   - Service Account env vars (`GOOGLE_APPLICATION_CREDENTIALS`, `GOOGLE_CLIENT_EMAIL`/`GOOGLE_PRIVATE_KEY`)
   - Bing API Key env var (`BING_API_KEY`)
 - **Setup Wizard DX Improvements**:

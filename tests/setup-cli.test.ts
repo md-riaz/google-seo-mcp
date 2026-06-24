@@ -61,7 +61,7 @@ describe('CLI Commands', () => {
 
     describe('runLogout', () => {
         it('should logout with provided account ID', async () => {
-            // Simulate CLI args: npx search-console-mcp logout google_id
+            // Simulate CLI args: npx google-seo-mcp logout google_id
             process.argv = ['node', 'script', 'logout', 'google_id'];
             await runLogout();
             expect(googleClient.logout).toHaveBeenCalledWith('google_id');

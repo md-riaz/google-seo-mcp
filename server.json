@@ -1,16 +1,16 @@
 {
   "$schema": "https://static.modelcontextprotocol.io/schemas/2025-12-11/server.schema.json",
-  "name": "io.github.saurabhsharma2u/search-console-mcp",
+  "name": "io.github.saurabhsharma2u/google-seo-mcp",
   "description": "MCP server for GSC, Bing, and GA4. Includes analytics, health checks, and SEO insights.",
   "repository": {
-    "url": "https://github.com/saurabhsharma2u/search-console-mcp",
+    "url": "https://github.com/saurabhsharma2u/google-seo-mcp",
     "source": "github"
   },
   "version": "1.13.5",
   "packages": [
     {
       "registryType": "npm",
-      "identifier": "search-console-mcp",
+      "identifier": "google-seo-mcp",
       "version": "1.13.5",
       "transport": {
         "type": "stdio"

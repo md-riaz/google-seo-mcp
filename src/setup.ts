@@ -200,7 +200,7 @@ export function showMcpConfigSnippet() {
         mcpServers: {
             "search-console": {
                 command: "npx",
-                args: ["-y", "search-console-mcp"]
+                args: ["-y", "google-seo-mcp"]
             }
         }
     }, null, 2));
@@ -311,7 +311,7 @@ export async function runLogout() {
     printHeader();
     printInfo('Logging out and clearing secure credentials...');
 
-    // Get email from CLI args if provided: search-console-mcp logout user@gmail.com
+    // Get email from CLI args if provided: google-seo-mcp logout user@gmail.com
     const email = process.argv[3];
 
     try {
@@ -425,7 +425,7 @@ async function setupServiceAccount() {
 
     printStep(4, 'Configure your MCP client');
     showMcpConfigSnippet();
-    console.log('\n🎉 Setup complete! You can now use Search Console MCP.\n');
+    console.log('\n🎉 Setup complete! You can now use Google SEO MCP.\n');
 
     await supportProject();
 }
@@ -439,10 +439,10 @@ async function supportProject() {
                 execSync(`gh api -X PUT /user/starred/${repo}`, { stdio: 'ignore' });
                 printSuccess('Thanks for your support! ⭐');
             } else {
-                console.log('🔗 https://github.com/saurabhsharma2u/search-console-mcp');
+                console.log('🔗 https://github.com/saurabhsharma2u/google-seo-mcp');
             }
         } catch (error) {
-            console.log('🔗 https://github.com/saurabhsharma2u/search-console-mcp');
+            console.log('🔗 https://github.com/saurabhsharma2u/google-seo-mcp');
         }
     }
 }

@@ -40,7 +40,7 @@ export async function resolveAccount(siteUrl: string, engine: EngineType): Promi
     if (accounts.length === 0) {
         const error = new Error(`No ${engine} accounts found. Please run setup.`) as ResolutionError;
         error.code = 'NOT_FOUND';
-        error.resolution = { command: `search-console-mcp setup --engine=${engine}` };
+        error.resolution = { command: `google-seo-mcp setup --engine=${engine}` };
         throw error;
     }
 
@@ -84,7 +84,7 @@ export async function resolveAccount(siteUrl: string, engine: EngineType): Promi
     if (globalAccounts.length > 1) {
         const error = new Error(`Multiple ${engine} accounts found. Please specify an account boundary or remove unused accounts.`) as ResolutionError;
         error.code = 'AMBIGUOUS';
-        error.resolution = { command: `search-console-mcp accounts list` };
+        error.resolution = { command: `google-seo-mcp accounts list` };
         throw error;
     }
 
@@ -92,7 +92,7 @@ export async function resolveAccount(siteUrl: string, engine: EngineType): Promi
     const error = new Error(`Access restricted. Site '${siteUrl}' is not in the authorized list for any ${engine} account.`) as ResolutionError;
     error.code = 'FORBIDDEN';
     error.resolution = {
-        command: `search-console-mcp accounts add-site --site=${siteUrl}`
+        command: `google-seo-mcp accounts add-site --site=${siteUrl}`
     };
     throw error;
 }

@@ -19,7 +19,7 @@ This method allows you to log in with your Google account via a browser, just li
 Run the following command in your terminal:
 
 ```bash
-npx search-console-mcp setup
+npx google-seo-mcp setup
 ```
 
 1.  A local secure server will start.
@@ -33,10 +33,10 @@ You can manage your sessions directly from the CLI:
 
 ```bash
 # Logout of the default account
-npx search-console-mcp logout
+npx google-seo-mcp logout
 
 # Logout of a specific account by email
-npx search-console-mcp logout user@gmail.com
+npx google-seo-mcp logout user@gmail.com
 ```
 
 ---
@@ -96,7 +96,7 @@ You can configure the Bing API Key in your MCP client configuration using the `B
   "mcpServers": {
     "search-console": {
       "command": "npx",
-      "args": ["-y", "search-console-mcp"],
+      "args": ["-y", "google-seo-mcp"],
       "env": {
         "BING_API_KEY": "YOUR_BING_API_KEY"
       }
@@ -106,7 +106,7 @@ You can configure the Bing API Key in your MCP client configuration using the `B
 ```
 
 ### Setup Wizard support
-Alternatively, run `npx search-console-mcp setup` and choose Option 3 to configure your Bing API Key interactively.
+Alternatively, run `npx google-seo-mcp setup` and choose Option 3 to configure your Bing API Key interactively.
 
 ---
 
@@ -119,7 +119,7 @@ GA4 integration currently requires a Service Account for the most reliable conne
 Run the setup wizard with the GA4 flag:
 
 ```bash
-npx search-console-mcp setup --engine=ga4
+npx google-seo-mcp setup --engine=ga4
 ```
 
 ### Step 2: Granting Property Access

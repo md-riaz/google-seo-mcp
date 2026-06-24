@@ -1,6 +1,6 @@
-# Shared Self-Hosted Deployment Guide for Search Console MCP
+# Shared Self-Hosted Deployment Guide for Google SEO MCP
 
-This guide explains how to deploy the Search Console MCP server centrally in your company's hosting infrastructure (VPS) using Docker and Nginx. This setup allows multiple team members to connect to the server with a shared API key, leveraging a single set of centrally managed search engine credentials.
+This guide explains how to deploy the Google SEO MCP server centrally in your company's hosting infrastructure (VPS) using Docker and Nginx. This setup allows multiple team members to connect to the server with a shared API key, leveraging a single set of centrally managed search engine credentials.
 
 ---
 
@@ -11,7 +11,7 @@ To deploy this MCP server as a container:
 ### 1. Build the Docker Image
 Build the image from the root of the repository:
 ```bash
-docker build -t company-search-console-mcp .
+docker build -t company-google-seo-mcp .
 ```
 
 ### 2. Configure Environment Variables
@@ -27,14 +27,14 @@ You should configure the following environment variables on the VPS/container:
 ### 3. Run the Container
 ```bash
 docker run -d \
-  --name search-console-mcp \
+  --name google-seo-mcp \
   -p 3000:3000 \
   -v /path/to/local/google-sa.json:/secrets/google-sa.json:ro \
   -e GOOGLE_APPLICATION_CREDENTIALS=/secrets/google-sa.json \
   -e PORT=3000 \
   -e BASE_PATH=/search-console \
   -e MCP_API_KEY="your-secure-shared-token" \
-  company-search-console-mcp
+  company-google-seo-mcp
 ```
 
 ---
@@ -59,7 +59,7 @@ server {
     ssl_certificate /etc/letsencrypt/live/mcp.yourcompany.com/fullchain.pem;
     ssl_certificate_key /etc/letsencrypt/live/mcp.yourcompany.com/privkey.pem;
 
-    # 1. Search Console MCP (runs internally on port 3000, mapped to /search-console)
+    # 1. Google SEO MCP (runs internally on port 3000, mapped to /search-console)
     location /search-console/ {
         proxy_pass http://127.0.0.1:3000;
         proxy_http_version 1.1;

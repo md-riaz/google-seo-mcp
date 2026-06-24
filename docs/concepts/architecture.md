@@ -1,9 +1,9 @@
 ---
 title: "Architecture"
-description: "How the Search Console MCP server is built."
+description: "How the Google SEO MCP server is built."
 ---
 
-The `search-console-mcp` server acts as a middle layer between your AI agent and the Google Search Console APIs.
+The `google-seo-mcp` server acts as a middle layer between your AI agent and the Google Search Console APIs.
 
 ## Logic Layers
 

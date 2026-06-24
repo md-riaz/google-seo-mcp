@@ -3,7 +3,7 @@
 
 ## Supported Versions
 
-The latest published version of Search Console MCP is actively maintained and receives security updates.
+The latest published version of Google SEO MCP is actively maintained and receives security updates.
 
 Older versions may not receive patches. Users are encouraged to upgrade to the latest release.
 
@@ -30,7 +30,7 @@ You will receive acknowledgment within a reasonable timeframe.
 
 ## Security Model
 
-Search Console MCP is designed as a local-first CLI tool with the following security principles:
+Google SEO MCP is designed as a local-first CLI tool with the following security principles:
 
 ### 1. OAuth-Based Authentication
 
@@ -67,7 +67,7 @@ Access tokens are short-lived and not permanently stored unless necessary.
 
 ### 3. No Central Data Collection
 
-Search Console MCP:
+Google SEO MCP:
 
 - Does not operate a backend server
 - Does not transmit user data to the developer

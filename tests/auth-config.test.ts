@@ -42,11 +42,11 @@ describe('Auth Config', () => {
 
         vi.mocked(fs.writeFileSync).mockImplementation((p, c) => {
             const pathStr = p as string;
-            if (pathStr.includes('.search-console-mcp-config.enc')) {
+            if (pathStr.includes('.google-seo-mcp-config.enc')) {
                 mockFS['config.enc'] = c as string;
-            } else if (pathStr.includes('.search-console-mcp-tokens.enc')) {
+            } else if (pathStr.includes('.google-seo-mcp-tokens.enc')) {
                 mockFS['tokens.enc'] = c as string;
-            } else if (pathStr.includes('.search-console-mcp-tokens.json')) {
+            } else if (pathStr.includes('.google-seo-mcp-tokens.json')) {
                 mockFS['tokens.json'] = c as string;
             } else {
                 mockFS[pathStr] = c as string;

@@ -54,7 +54,7 @@ try {
 }
 
 const server = new McpServer({
-  name: "search-console-mcp",
+  name: "google-seo-mcp",
   version: version,
 });
 
@@ -1768,7 +1768,7 @@ async function main() {
   const hasGoogle = accounts.some(a => a.engine === 'google') ||
     !!process.env.GOOGLE_APPLICATION_CREDENTIALS ||
     (!!process.env.GOOGLE_CLIENT_EMAIL && !!process.env.GOOGLE_PRIVATE_KEY) ||
-    existsSync(join(homedir(), '.search-console-mcp-tokens.enc')); // Legacy check
+    existsSync(join(homedir(), '.google-seo-mcp-tokens.enc')); // Legacy check
 
   const hasGA4 = accounts.some(a => a.engine === 'ga4');
 
@@ -1782,12 +1782,12 @@ async function main() {
 
     if (!hasGoogle) {
       console.error(`${colors.red}✘${colors.reset} ${colors.bold}Google not configured.${colors.reset}`);
-      console.error(`${colors.blue}ℹ${colors.reset} ${colors.dim}Run:${colors.reset} ${colors.bold}${colors.cyan}search-console-mcp setup --engine=google${colors.reset}`);
+      console.error(`${colors.blue}ℹ${colors.reset} ${colors.dim}Run:${colors.reset} ${colors.bold}${colors.cyan}google-seo-mcp setup --engine=google${colors.reset}`);
     }
 
     if (!hasGA4) {
       console.error(`${colors.red}✘${colors.reset} ${colors.bold}GA4 not configured.${colors.reset}`);
-      console.error(`${colors.blue}ℹ${colors.reset} ${colors.dim}Run:${colors.reset} ${colors.bold}${colors.cyan}search-console-mcp setup --engine=ga4${colors.reset}`);
+      console.error(`${colors.blue}ℹ${colors.reset} ${colors.dim}Run:${colors.reset} ${colors.bold}${colors.cyan}google-seo-mcp setup --engine=ga4${colors.reset}`);
     }
 
     console.error(`\n${colors.dim}${'─'.repeat(64)}${colors.reset}\n`);
@@ -1935,7 +1935,7 @@ async function main() {
     });
 
     app.listen(port, () => {
-      console.error(`Search Console MCP running on SSE at http://localhost:${port}${basePath} [ ${googleStatus} | ${ga4Status} ]`);
+      console.error(`Google SEO MCP running on SSE at http://localhost:${port}${basePath} [ ${googleStatus} | ${ga4Status} ]`);
       if (process.env.MCP_API_KEY) {
         console.error(`Authorization: Enabled (Requires Bearer token matching MCP_API_KEY)`);
       } else {
@@ -1945,7 +1945,7 @@ async function main() {
   } else {
     const transport = new StdioServerTransport();
     await server.connect(transport);
-    console.error(`Search Console MCP running on stdio [ ${googleStatus} | ${ga4Status} ]`);
+    console.error(`Google SEO MCP running on stdio [ ${googleStatus} | ${ga4Status} ]`);
   }
 }
 

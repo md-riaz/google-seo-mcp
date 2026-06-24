@@ -1,6 +1,6 @@
 ---
 title: "Project Philosophy"
-description: "The core principles behind search-console-mcp."
+description: "The core principles behind google-seo-mcp."
 ---
 
 We aren't just building a software tool; we are building a new way for humans and AI to collaborate on search engine optimization.

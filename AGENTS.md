@@ -1,13 +1,13 @@
-# Search Console MCP Server Conventions (AGENTS.md)
+# Google SEO MCP Server Conventions (AGENTS.md)
 
-This repository contains the **Search Console MCP Server**. While this repository itself is a single Node.js project, it is architected and configured to be co-hosted on a shared VPS (Virtual Private Server) alongside other internal MCP servers.
+This repository contains the **Google SEO MCP Server**. While this repository itself is a single Node.js project, it is architected and configured to be co-hosted on a shared VPS (Virtual Private Server) alongside other internal MCP servers.
 
 ## 🏛️ Co-Hosting Architecture
 
 ```mermaid
 graph TD
     Client[Claude Code / MCP Client] -->|HTTPS| Nginx[Nginx Reverse Proxy]
-    Nginx -->|/search-console/*| Port3000[This Search Console MCP - Port 3000]
+    Nginx -->|/search-console/*| Port3000[This Google SEO MCP - Port 3000]
     Nginx -->|/other-mcp/*| Port3001[Other MCP Server - Port 3001]
 ```
 
@@ -27,7 +27,7 @@ When hosting other internal MCP servers on the same VPS, ensure you coordinate p
 
 | MCP Server Name | Subpath Prefix | Port | Service Location on VPS |
 |---|---|---|---|
-| Search Console MCP (This Service) | `/search-console` | `3000` | `/var/www/search-console-mcp` |
+| Google SEO MCP (This Service) | `/search-console` | `3000` | `/var/www/google-seo-mcp` |
 | GitHub MCP (Example) | `/github` | `3001` | `/var/www/github-mcp` |
 | Database MCP (Example) | `/database` | `3002` | `/var/www/database-mcp` |
 

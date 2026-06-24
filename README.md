@@ -1,14 +1,14 @@
 
-# Search Console MCP
+# Google SEO MCP
 
 A Model Context Protocol (MCP) server that transforms how you interact with **Google Search Console** and **Google Analytics 4**. Stop exporting CSVs and start asking questions.
 
-[📚 View Documentation](https://searchconsolemcp.saurabh.app/)
+[📚 View Documentation](https://googleseomcp.saurabh.app/)
 
 ---
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests](https://github.com/saurabhsharma2u/search-console-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/saurabhsharma2u/search-console-mcp/actions/workflows/ci.yml)
+[![Tests](https://github.com/saurabhsharma2u/google-seo-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/saurabhsharma2u/google-seo-mcp/actions/workflows/ci.yml)
 
 ## Why use this?
 
@@ -18,7 +18,7 @@ A Model Context Protocol (MCP) server that transforms how you interact with **Go
 *   **Switching Fatigue**: Logging in and out to manage multiple clients or properties.
 *   **AI Context Limits**: Uploading giant spreadsheets that hit context limits and cause model hallucinations.
 
-### ✅ The Search Console MCP Way
+### ✅ The Google SEO MCP Way
 *   **Platform Synergy**: **GSC + GA4** in a single context window. Stop exporting, start analyzing.
 *   **Deterministic Intelligence**: The server performs the complex SEO math (cannibalization, Z-score anomalies, striking distance) so your AI agent gets curated insights, not raw data piles.
 *   **Cross-Platform ROI**: Use the **Opportunity Matrix** to prioritize keywords that have high search visibility (GSC) but poor on-site engagement (GA4).
@@ -56,7 +56,7 @@ Copy and paste these into your MCP client (Claude Desktop, etc.) to see the inte
 
 ## 🔐 Authentication (Desktop Flow)
 
-Search Console MCP uses a **Secure Desktop Flow**. This provides high-security, professional grade authentication for your Google account:
+Google SEO MCP uses a **Secure Desktop Flow**. This provides high-security, professional grade authentication for your Google account:
 - **Multi-Account Support**: Connect multiple Google accounts. The server automatically picks the right one for each site.
 - **System Keychain Primary**: Tokens are stored in your OS's native credential manager (macOS Keychain, Windows Credential Manager, or Linux Secret Service).
 - **AES-256-GCM Hardware-Bound Encryption**: Fallback storage is encrypted with AES-256-GCM using a key derived from your unique hardware machine ID. Tokens stolen from your machine cannot be decrypted on another computer.
@@ -65,7 +65,7 @@ Search Console MCP uses a **Secure Desktop Flow**. This provides high-security, 
 ### 🚀 Option A: CLI Interactive Setup (Local Desktop)
 For local desktop use, run the following command to start the authorization process:
 ```bash
-npx search-console-mcp setup
+npx google-seo-mcp setup
 ```
 
 The CLI will:
@@ -92,10 +92,10 @@ If you host this MCP server centrally (using Express SSE mode), you can authenti
 To wipe your credentials from both the keychain and the disk:
 ```bash
 # Logout of the default account
-npx search-console-mcp logout
+npx google-seo-mcp logout
 
 # Logout of a specific account
-npx search-console-mcp logout user@gmail.com
+npx google-seo-mcp logout user@gmail.com
 ```
 
 ---
@@ -138,16 +138,16 @@ Manage multiple Google accounts from the CLI:
 
 ```bash
 # List all connected accounts
-npx search-console-mcp accounts list
+npx google-seo-mcp accounts list
 
 # Remove an account
-npx search-console-mcp accounts remove --account=marketing@company.com
+npx google-seo-mcp accounts remove --account=marketing@company.com
 
 # Add a site boundary to an account
-npx search-console-mcp accounts add-site --account=marketing@company.com --site=example.com
+npx google-seo-mcp accounts add-site --account=marketing@company.com --site=example.com
 ```
 
-When your AI agent queries a site, the server automatically resolves which account to use. [Learn more →](https://searchconsolemcp.mintlify.app/getting-started/multi-account)
+When your AI agent queries a site, the server automatically resolves which account to use. [Learn more →](https://googleseomcp.mintlify.app/getting-started/multi-account)
 
 ---
 
@@ -157,7 +157,7 @@ When your AI agent queries a site, the server automatically resolves which accou
 This MCP server implements a multi-layered security architecture:
 
 *   **Keychain Integration**: Primarily uses the **macOS Keychain**, **Windows Credential Manager**, or **libsecret (Linux)** to store tokens.
-*   **Encrypted Config**: Account configuration is stored in `~/.search-console-mcp-config.enc` using **AES-256-GCM** encryption.
+*   **Encrypted Config**: Account configuration is stored in `~/.google-seo-mcp-config.enc` using **AES-256-GCM** encryption.
 *   **Machine Fingerprinting**: The encryption key is derived from your unique hardware UUID and OS user. The encrypted file is useless if moved to another machine.
 *   **Minimalist Storage**: Only the `refresh_token` and `expiry_date` are stored.
 *   **Legacy Support**: Automatically detects credentials from older versions (tokens files, environment variables).

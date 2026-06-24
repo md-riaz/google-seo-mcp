@@ -6,8 +6,8 @@ import nodeMachineId from 'node-machine-id';
 
 const { machineIdSync } = nodeMachineId;
 
-const CONFIG_PATH = join(homedir(), '.search-console-mcp-config.enc');
-const LEGACY_TOKEN_PATH = join(homedir(), '.search-console-mcp-tokens.enc');
+const CONFIG_PATH = join(homedir(), '.google-seo-mcp-config.enc');
+const LEGACY_TOKEN_PATH = join(homedir(), '.google-seo-mcp-tokens.enc');
 const ENCRYPTION_ALGORITHM = 'aes-256-gcm';
 
 export type EngineType = 'google' | 'ga4';
@@ -133,7 +133,7 @@ export async function loadConfig(): Promise<AppConfig> {
     }
 
     // 3b. Check for legacy OAuth tokens (unencrypted JSON file)
-    const LEGACY_JSON_TOKEN_PATH = join(homedir(), '.search-console-mcp-tokens.json');
+    const LEGACY_JSON_TOKEN_PATH = join(homedir(), '.google-seo-mcp-tokens.json');
     if (existsSync(LEGACY_JSON_TOKEN_PATH)) {
         try {
             const raw = readFileSync(LEGACY_JSON_TOKEN_PATH, 'utf-8');

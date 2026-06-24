@@ -1,7 +1,7 @@
 {
-  "name": "Search Console MCP",
+  "name": "Google SEO MCP",
   "theme": "mint",
-  "logo": "/images/search-console-mcp-logo.png",
+  "logo": "/images/google-seo-mcp-logo.png",
   "favicon": "/favicon.png",
   "colors": {
     "primary": "#4F46E5",
@@ -10,13 +10,13 @@
   },
   "seo": {
     "metatags": {
-        "canonical": "https://searchconsolemcp.saurabh.app"
+        "canonical": "https://googleseomcp.saurabh.app"
     }
 },
   "topbarLinks": [
     {
       "name": "GitHub",
-      "url": "https://github.com/saurabhsharma2u/search-console-mcp"
+      "url": "https://github.com/saurabhsharma2u/google-seo-mcp"
     }
   ],
   "navigation": {
@@ -87,6 +87,6 @@
     ]
   },
   "footerSocials": {
-    "github": "https://github.com/saurabhsharma2u/search-console-mcp"
+    "github": "https://github.com/saurabhsharma2u/google-seo-mcp"
   }
 }

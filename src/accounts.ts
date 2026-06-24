@@ -36,18 +36,18 @@ export async function main(args: string[]) {
                     accounts: [],
                     message: "No accounts connected.",
                     resolution: {
-                        command: "search-console-mcp setup",
-                        google: "search-console-mcp setup --engine=google",
-                        ga4: "search-console-mcp setup --engine=ga4"
+                        command: "google-seo-mcp setup",
+                        google: "google-seo-mcp setup --engine=google",
+                        ga4: "google-seo-mcp setup --engine=ga4"
                     },
                     setup_instructions: {
                         google: [
-                            "Run: search-console-mcp setup --engine=google",
+                            "Run: google-seo-mcp setup --engine=google",
                             "Choose OAuth 2.0 login or Service Account",
                             "Authorize in browser and select sites to restrict (or allow all)"
                         ],
                         ga4: [
-                            "Run: search-console-mcp setup --engine=ga4",
+                            "Run: google-seo-mcp setup --engine=ga4",
                             "Choose Service Account (OAuth coming soon)",
                             "Add the service account email to your GA4 property"
                         ]
@@ -101,8 +101,8 @@ export async function main(args: string[]) {
                 error: "Missing arguments",
                 message: "Provide --account=<alias|id> to remove an account, or --site=<url> to remove a specific site boundary.",
                 resolution: {
-                    by_account: "search-console-mcp accounts remove --account=<alias_or_id>",
-                    by_site: "search-console-mcp accounts remove --site=<siteUrl>"
+                    by_account: "google-seo-mcp accounts remove --account=<alias_or_id>",
+                    by_site: "google-seo-mcp accounts remove --site=<siteUrl>"
                 }
             }, null, 2));
             return;
@@ -118,7 +118,7 @@ export async function main(args: string[]) {
                     console.log(JSON.stringify({
                         error: "Account not found",
                         message: `No account matching '${identifier}' was found.`,
-                        resolution: "Run: search-console-mcp accounts list"
+                        resolution: "Run: google-seo-mcp accounts list"
                     }, null, 2));
                     return;
                 }
@@ -146,7 +146,7 @@ export async function main(args: string[]) {
                     console.log(JSON.stringify({
                         error: "Site not found",
                         message: `No account has '${siteToRemove}' in its site boundaries.`,
-                        resolution: "Run: search-console-mcp accounts list"
+                        resolution: "Run: google-seo-mcp accounts list"
                     }, null, 2));
                 }
             }
@@ -168,7 +168,7 @@ export async function main(args: string[]) {
             console.log(JSON.stringify({
                 error: "Missing arguments",
                 message: "Both --account and --site are required.",
-                resolution: "search-console-mcp accounts add-site --account=<alias_or_id> --site=<siteUrl>"
+                resolution: "google-seo-mcp accounts add-site --account=<alias_or_id> --site=<siteUrl>"
             }, null, 2));
             return;
         }
@@ -181,7 +181,7 @@ export async function main(args: string[]) {
                 console.log(JSON.stringify({
                     error: "Account not found",
                     message: `No account matching '${identifier}' was found.`,
-                    resolution: "Run: search-console-mcp accounts list"
+                    resolution: "Run: google-seo-mcp accounts list"
                 }, null, 2));
                 return;
             }
@@ -213,10 +213,10 @@ export async function main(args: string[]) {
         error: "Unknown command",
         message: `'${subcommand}' is not a valid subcommand.`,
         resolution: {
-            list: "search-console-mcp accounts list",
-            remove_account: "search-console-mcp accounts remove --account=<alias_or_id>",
-            remove_site: "search-console-mcp accounts remove --site=<siteUrl>",
-            add_site: "search-console-mcp accounts add-site --account=<alias_or_id> --site=<siteUrl>"
+            list: "google-seo-mcp accounts list",
+            remove_account: "google-seo-mcp accounts remove --account=<alias_or_id>",
+            remove_site: "google-seo-mcp accounts remove --site=<siteUrl>",
+            add_site: "google-seo-mcp accounts add-site --account=<alias_or_id> --site=<siteUrl>"
         }
     }, null, 2));
 }

@@ -12,7 +12,7 @@ describe('UI Utils', () => {
         printBoxHeader('Test Header');
         expect(consoleSpy).toHaveBeenCalledTimes(3);
         expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Test Header'));
-        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Search Console MCP'));
+        expect(consoleSpy).toHaveBeenCalledWith(expect.stringContaining('Google SEO MCP'));
     });
 
     it('should print box header with custom color', () => {
