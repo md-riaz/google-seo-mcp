@@ -15,11 +15,6 @@ vi.mock('node-machine-id', () => ({
     }
 }));
 
-// Import mocks BEFORE tools to ensure vi.mock in mocks.ts takes effect?
-// Actually, let's redefine the mock here to be safe and explicit, or try reordering.
-// Reordering imports relies on hoisting behavior which might be tricky.
-// Better to explicitly mock here.
-
 import { mockSearchConsoleClient } from './mocks';
 
 // Re-mock src/google/client here to ensure it applies
@@ -28,16 +23,6 @@ vi.mock('../src/google/client', () => ({
 }));
 
 import { inspectBatch as inspectBatchGoogle } from '../src/google/tools/inspection';
-import { inspectBatch as inspectBatchBing } from '../src/bing/tools/inspection';
-
-// Mock Bing client using vi.hoisted to avoid hoisting issues
-const mockBingClient = vi.hoisted(() => ({
-    getUrlInfo: vi.fn(),
-}));
-
-vi.mock('../src/bing/client', () => ({
-    getBingClient: vi.fn().mockResolvedValue(mockBingClient),
-}));
 
 describe('Batch Inspection Tool', () => {
     beforeEach(() => {
@@ -86,41 +71,6 @@ describe('Batch Inspection Tool', () => {
             expect(results).toHaveLength(2);
             expect(results[0].result).toBeDefined();
             expect(results[1].error).toBe('API Error');
-        });
-    });
-
-    describe('Bing Batch Inspection', () => {
-        it('should process multiple URLs in batch', async () => {
-            const siteUrl = 'https://example.com';
-            const urls = ['https://example.com/page1', 'https://example.com/page2'];
-
-            mockBingClient.getUrlInfo.mockResolvedValue({
-                IndexStatus: 'Indexed'
-            });
-
-            const results = await inspectBatchBing(siteUrl, urls);
-
-            expect(results).toHaveLength(2);
-            expect(mockBingClient.getUrlInfo).toHaveBeenCalledTimes(2);
-            expect(results[0].result).toEqual({ IndexStatus: 'Indexed' });
-        });
-
-        it('should handle errors for individual URLs', async () => {
-            const siteUrl = 'https://example.com';
-            const urls = ['https://example.com/page1', 'https://example.com/error'];
-
-            mockBingClient.getUrlInfo.mockImplementation(async (site, url) => {
-                if (url.includes('error')) {
-                    throw new Error('Bing API Error');
-                }
-                return { IndexStatus: 'Indexed' };
-            });
-
-            const results = await inspectBatchBing(siteUrl, urls);
-
-            expect(results).toHaveLength(2);
-            expect(results[0].result).toBeDefined();
-            expect(results[1].error).toBe('Bing API Error');
         });
     });
 });

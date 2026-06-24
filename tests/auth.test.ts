@@ -3,6 +3,9 @@ import { loadTokensForAccount, saveTokensForAccount, logout, getUserEmail } from
 import { existsSync, readFileSync, writeFileSync } from 'fs';
 import { AccountConfig } from '../src/common/auth/config.js';
 
+process.env.GOOGLE_CLIENT_ID = 'test-client-id';
+process.env.GOOGLE_CLIENT_SECRET = 'test-client-secret';
+
 // Mock fs
 vi.mock('fs', () => ({
     existsSync: vi.fn(),

@@ -131,14 +131,7 @@ describe('Auth Config', () => {
         expect(config.accounts['legacy_google'].serviceAccountPath).toBe('/path/to/key.json');
     });
 
-    it('should migrate legacy env vars (Bing)', async () => {
-        process.env.BING_API_KEY = 'bing-key';
 
-        const config = await loadConfig();
-
-        expect(config.accounts['legacy_bing']).toBeDefined();
-        expect(config.accounts['legacy_bing'].apiKey).toBe('bing-key');
-    });
 
     it('should migrate legacy JSON tokens', async () => {
         mockFS['tokens.json'] = JSON.stringify({

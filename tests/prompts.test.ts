@@ -27,7 +27,7 @@ describe('Prompts registration', () => {
     process.env = originalEnv;
   });
 
-  it('should register all 8 prompts', () => {
+  it('should register all 7 prompts', () => {
     registerPrompts(mockServer as McpServer);
     const calls = mockServer.prompt.mock.calls;
     const registeredNames = calls.map((c: any) => c[0]);
@@ -36,16 +36,14 @@ describe('Prompts registration', () => {
     expect(registeredNames).toContain('find_quick_wins');
     expect(registeredNames).toContain('full_site_audit');
     expect(registeredNames).toContain('analyze_page');
-    expect(registeredNames).toContain('platform_comparison');
     expect(registeredNames).toContain('content_opportunity_report');
     expect(registeredNames).toContain('executive_summary');
     expect(registeredNames).toContain('ga4_traffic_audit');
-    expect(registeredNames).toHaveLength(8);
+    expect(registeredNames).toHaveLength(7);
   });
 
   it('should generate Google-specific workflow when Google is enabled', () => {
     process.env.GOOGLE_APPLICATION_CREDENTIALS = 'fake-path.json';
-    delete process.env.BING_API_KEY;
 
     registerPrompts(mockServer as McpServer);
 
@@ -55,7 +53,6 @@ describe('Prompts registration', () => {
     const dropResult = dropHandler({ site_url: 'http://example.com' });
     const dropText = dropResult.messages[0].content.text;
     expect(dropText).toContain("analytics_anomalies");
-    expect(dropText).not.toContain("bing_analytics_detect_anomalies");
 
     // Check full_site_audit
     const auditPrompt = mockServer.prompt.mock.calls.find((c: any) => c[0] === 'full_site_audit');
@@ -63,36 +60,6 @@ describe('Prompts registration', () => {
     const auditResult = auditHandler({ site_url: 'http://example.com' });
     const auditText = auditResult.messages[0].content.text;
     expect(auditText).toContain("sites_list");
-    expect(auditText).not.toContain("bing_sites_health");
-  });
-
-  it('should generate Bing-specific workflow with numbered steps when Bing is enabled', () => {
-    delete process.env.GOOGLE_APPLICATION_CREDENTIALS;
-    delete process.env.GOOGLE_CLIENT_EMAIL;
-    delete process.env.GOOGLE_PRIVATE_KEY;
-    process.env.BING_API_KEY = 'fake-key';
-
-    registerPrompts(mockServer as McpServer);
-
-    // Check investigate_traffic_drop — Bing should get numbered steps, not "For Bing:" prefix
-    const dropPrompt = mockServer.prompt.mock.calls.find((c: any) => c[0] === 'investigate_traffic_drop');
-    const dropHandler = dropPrompt[2];
-    const dropResult = dropHandler({ site_url: 'http://example.com' });
-    const dropText = dropResult.messages[0].content.text;
-    expect(dropText).toContain("bing_analytics_detect_anomalies");
-    expect(dropText).toContain("1.");  // Should have numbered steps
-    expect(dropText).not.toContain("analytics_anomalies");
-    expect(dropText).not.toContain("For Bing:");  // No second-class prefix
-
-    // Check full_site_audit
-    const auditPrompt = mockServer.prompt.mock.calls.find((c: any) => c[0] === 'full_site_audit');
-    const auditHandler = auditPrompt[2];
-    const auditResult = auditHandler({ site_url: 'http://example.com' });
-    const auditText = auditResult.messages[0].content.text;
-    expect(auditText).toContain("bing_sites_health");
-    expect(auditText).toContain("1.");
-    expect(auditText).not.toContain("sites_list");
-    expect(auditText).not.toContain("For Bing:");
   });
 
   it('should evaluate platform detection at call time (not registration time)', () => {
@@ -100,7 +67,6 @@ describe('Prompts registration', () => {
     delete process.env.GOOGLE_APPLICATION_CREDENTIALS;
     delete process.env.GOOGLE_CLIENT_EMAIL;
     delete process.env.GOOGLE_PRIVATE_KEY;
-    delete process.env.BING_API_KEY;
 
     registerPrompts(mockServer as McpServer);
 
@@ -110,7 +76,6 @@ describe('Prompts registration', () => {
     // Call with no platforms — should have no tool steps
     const result1 = dropHandler({ site_url: 'http://example.com' });
     expect(result1.messages[0].content.text).not.toContain("analytics_anomalies");
-    expect(result1.messages[0].content.text).not.toContain("bing_analytics_detect_anomalies");
 
     // Now enable Google and call again — should pick up the change
     process.env.GOOGLE_APPLICATION_CREDENTIALS = 'fake-path.json';
@@ -120,7 +85,6 @@ describe('Prompts registration', () => {
 
   it('should produce sequential step numbers even with optional parameters', () => {
     process.env.GOOGLE_APPLICATION_CREDENTIALS = 'fake-path.json';
-    delete process.env.BING_API_KEY;
 
     registerPrompts(mockServer as McpServer);
 
@@ -179,7 +143,6 @@ describe('Prompts registration', () => {
     delete process.env.GOOGLE_APPLICATION_CREDENTIALS;
     delete process.env.GOOGLE_CLIENT_EMAIL;
     delete process.env.GOOGLE_PRIVATE_KEY;
-    delete process.env.BING_API_KEY;
 
     registerPrompts(mockServer as McpServer);
 

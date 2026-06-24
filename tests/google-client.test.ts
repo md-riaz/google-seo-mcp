@@ -3,6 +3,9 @@ import { getSearchConsoleClient, startLocalFlow, initiateDeviceFlow, pollForToke
 import * as configModule from '../src/common/auth/config.js';
 import * as resolverModule from '../src/common/auth/resolver.js';
 
+process.env.GOOGLE_CLIENT_ID = 'test-client-id';
+process.env.GOOGLE_CLIENT_SECRET = 'test-client-secret';
+
 // Mock dependencies
 vi.mock('../src/common/auth/config.js', () => ({
     loadConfig: vi.fn(),

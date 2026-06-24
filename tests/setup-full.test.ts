@@ -198,17 +198,6 @@ describe('Setup Full', () => {
     });
 
     describe('Interactive Flows', () => {
-        it('should handle Bing setup flow', async () => {
-            process.argv = ['node', 'setup.ts', '--engine=bing'];
-            mockAnswers = ['my-api-key', '', 'y'];
-
-            await setupModule.main();
-
-            expect(configModule.updateAccount).toHaveBeenCalledWith(expect.objectContaining({
-                engine: 'bing',
-                apiKey: 'my-api-key'
-            }));
-        });
 
         it('should handle Google Login flow', async () => {
             process.argv = ['node', 'setup.ts'];
