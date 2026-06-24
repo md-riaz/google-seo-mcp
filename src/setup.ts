@@ -439,10 +439,10 @@ async function supportProject() {
                 execSync(`gh api -X PUT /user/starred/${repo}`, { stdio: 'ignore' });
                 printSuccess('Thanks for your support! ⭐');
             } else {
-                console.log('🔗 https://github.com/saurabhsharma2u/google-seo-mcp');
+                console.log('🔗 https://github.com/md-riaz/google-seo-mcp');
             }
         } catch (error) {
-            console.log('🔗 https://github.com/saurabhsharma2u/google-seo-mcp');
+            console.log('🔗 https://github.com/md-riaz/google-seo-mcp');
         }
     }
 }

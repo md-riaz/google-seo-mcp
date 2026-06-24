@@ -15,7 +15,7 @@ If you discover a security vulnerability, please do not open a public GitHub iss
 
 Instead, report it privately:
 
-Email: saurabhsharma2u@gmail.com
+Email: contact@example.com
 
 Please include:
 

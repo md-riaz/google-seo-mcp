@@ -1,7 +1,7 @@
 {
   "name": "google-seo-mcp",
   "version": "1.13.5",
-  "mcpName": "io.github.saurabhsharma2u/google-seo-mcp",
+  "mcpName": "io.github.md-riaz/google-seo-mcp",
   "description": "MCP server for Google Search Console, Bing Webmaster Tools, and Google Analytics 4",
   "type": "module",
   "main": "dist/index.js",

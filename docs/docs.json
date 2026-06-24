@@ -10,13 +10,13 @@
   },
   "seo": {
     "metatags": {
-        "canonical": "https://googleseomcp.saurabh.app"
+      "canonical": "https://github.com/md-riaz/google-seo-mcp"
     }
-},
+  },
   "topbarLinks": [
     {
       "name": "GitHub",
-      "url": "https://github.com/saurabhsharma2u/google-seo-mcp"
+      "url": "https://github.com/md-riaz/google-seo-mcp"
     }
   ],
   "navigation": {
@@ -47,8 +47,6 @@
           "tools/analytics",
           "tools/seo-intelligence",
           "tools/ga4",
-          "tools/bing",
-          "tools/compare-engines",
           "tools/inspection",
           "tools/sites-and-sitemaps",
           "tools/site-health"
@@ -69,8 +67,7 @@
           "prompts/magic-prompts",
           "prompts/claude",
           "prompts/cursor",
-          "prompts/generic-agents",
-          "prompts/unified-search"
+          "prompts/generic-agents"
         ]
       },
       {
@@ -87,6 +84,6 @@
     ]
   },
   "footerSocials": {
-    "github": "https://github.com/saurabhsharma2u/google-seo-mcp"
+    "github": "https://github.com/md-riaz/google-seo-mcp"
   }
 }

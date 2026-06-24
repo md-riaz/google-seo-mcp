@@ -67,18 +67,18 @@ describe('Setup Wizard - Repository Resolution', () => {
         expect(result).toBe('owner/repo');
     });
 
-    it('should resolve the actual project repo correctly (saurabhsharma2u/google-seo-mcp)', () => {
+    it('should resolve the actual project repo correctly (md-riaz/google-seo-mcp)', () => {
         vi.mocked(execSync).mockImplementation(() => {
             throw new Error('git failed');
         });
         vi.mocked(existsSync).mockReturnValue(true);
         vi.mocked(readFileSync).mockReturnValue(JSON.stringify({
-            mcpName: 'io.github.saurabhsharma2u/google-seo-mcp'
+            mcpName: 'io.github.md-riaz/google-seo-mcp'
         }));
 
         const result = resolveRepo('/fake/dir');
 
-        expect(result).toBe('saurabhsharma2u/google-seo-mcp');
+        expect(result).toBe('md-riaz/google-seo-mcp');
     });
 
     it('should return empty string if everything fails', () => {
@@ -97,10 +97,10 @@ describe('Setup Wizard - Star Command', () => {
     it('should construct the correct gh api PUT command', () => {
         // This is a logic check - since main() is interactive, 
         // we verify the command string construction logic used in the implementation
-        const repo = 'saurabhsharma2u/google-seo-mcp';
+        const repo = 'md-riaz/google-seo-mcp';
         const expectedCommand = `gh api -X PUT /user/starred/${repo}`;
 
         // We simulate the call that would happen in Step 5
-        expect(expectedCommand).toBe('gh api -X PUT /user/starred/saurabhsharma2u/google-seo-mcp');
+        expect(expectedCommand).toBe('gh api -X PUT /user/starred/md-riaz/google-seo-mcp');
     });
 });

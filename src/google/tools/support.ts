@@ -4,7 +4,7 @@ import { promisify } from 'util';
 const execAsync = promisify(exec);
 
 export async function starRepository(): Promise<string> {
-    const repo = 'saurabhsharma2u/google-seo-mcp';
+    const repo = 'md-riaz/google-seo-mcp';
     const repoUrl = `https://github.com/${repo}`;
 
     try {

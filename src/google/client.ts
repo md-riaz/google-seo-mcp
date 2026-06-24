@@ -9,7 +9,7 @@ const SCOPES = [
   'https://www.googleapis.com/auth/webmasters.readonly',
   'https://www.googleapis.com/auth/userinfo.email'
 ];
-const SERVICE_NAME = 'io.github.saurabhsharma2u.google-seo-mcp';
+const SERVICE_NAME = 'io.github.md-riaz.google-seo-mcp';
 const DEFAULT_ACCOUNT = 'default';
 
 // Default Client ID and Secret are loaded from environment variables

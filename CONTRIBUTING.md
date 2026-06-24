@@ -60,7 +60,7 @@ PRs that introduce breaking changes should clearly explain:
 If you discover a security vulnerability:
 
 - Do not open a public issue
-- Email: saurabhsharma2u@gmail.com
+- Email: contact@example.com
 - Provide detailed reproduction steps
 
 We take security seriously, especially regarding OAuth and token storage.

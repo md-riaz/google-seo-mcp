@@ -3,12 +3,12 @@
 
 A Model Context Protocol (MCP) server that transforms how you interact with **Google Search Console** and **Google Analytics 4**. Stop exporting CSVs and start asking questions.
 
-[📚 View Documentation](https://googleseomcp.saurabh.app/)
+[📚 View Documentation](https://github.com/md-riaz/google-seo-mcp/)
 
 ---
 
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
-[![Tests](https://github.com/saurabhsharma2u/google-seo-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/saurabhsharma2u/google-seo-mcp/actions/workflows/ci.yml)
+[![Tests](https://github.com/md-riaz/google-seo-mcp/actions/workflows/ci.yml/badge.svg)](https://github.com/md-riaz/google-seo-mcp/actions/workflows/ci.yml)
 
 ## Why use this?
 
